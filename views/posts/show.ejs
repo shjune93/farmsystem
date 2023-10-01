@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <% include ../partials/head %>
+</head>
+<body>
+  <% include ../partials/nav %>
+  <div class="container post post-show">
+    <% include ./partials/header%>
+
+    
+    <div class="contentShow">
+      <div class="show">
+        <span class="sBox">title</span>
+        <span><%= boards.title%></span>
+      </div>
+      <div class="show">
+        <span class="sBox">author</span>
+        <span><%= boards.author%></span>
+      </div>
+      <div class="show">
+        <span class="sBox">Date</span>
+        <span><%= boards.reg_date%></span>
+      </div>
+
+      <div class="description">
+        <span class="sDescription"><%= boards.description %></span>
+      </div>
+    </div>
+
+    <div class="showButtons">
+      <a href="/posts" class="showBtn">Back</a>
+      <a href="/posts/<%= boards.id %>/edit" class="showBtn">Edit</a>
+      <form class="delt" action="/posts/<%= boards.id %>?_method=delete" method="post">
+        <a class="showBtn" href="#" onclick="confirm('정말로 삭제하시겠습니까?')?this.parentElement.submit():null;">Delete</a>
+      </form>
+    </div>
+    
+  </div>
+
+</body>
+</html>

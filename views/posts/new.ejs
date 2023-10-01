@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <% include ../partials/head %>
+</head>
+<body>
+  <% include ../partials/nav %>
+  <div class="container post post-new">
+    <% include ./partials/header%>
+
+  <form class="post-form form-horizontal" action="/posts" method="post">
+    <div class="contentNew">
+      <div class="newAuth">
+        <span class="newBox">title</span>
+        <input class="newTitle" type="text" name="title" placeholder="title">
+      </div>
+
+      <div class="newAuth">
+        <span class="sBox">author</span>
+        <span><%= currentUser.username %></span>
+      </div>
+
+      <div>
+        <textarea id="editor" name="description" placeholder="글을 입력해주세요."></textarea>
+      </div>
+
+      <div class="showButtons">
+        <a href="/posts" class="showBtn">Back</a>
+        <input class="showBtn" type="submit" name="submit" value="등록">
+      </div>
+    </div>
+    
+  </form>
+</div>
+
+
+</body>
+</html>

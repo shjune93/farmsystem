@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<% include ../partials/head %>
+</head>
+<!-- 익스프레스 서버와 소켓 서버가 연결이 되면, 소켓IO 서버에서 js파일을 넣어준다 -->
+<script src="/socket.io/socket.io.js"></script>
+<script>
+   // 위의 socket.io.js에서 뽑아 쓴다.
+   const socket = io.connect('http://localhost:8080', {
+	  path: '/socket.io', // 서버 path와 일치시켜준다
+	  //transports: ['websocket'] // polling 시도하지말고 바로 웹소켓으로 하려면 설정
+   });
+
+   socket.on('show', function (data) {
+	  
+	jsonmsg=JSON.parse(data);
+	for(let msg of jsonmsg){
+	  	
+		// ardu_id, tem, humi, date
+		var id= msg.ardu_id;
+		var tem=msg.tem;
+		var humi=msg.humi;
+		
+ 	  	document.getElementById('tem'+id).innerText='온도: '+tem;
+		document.getElementById('humi'+id).innerText='습도: '+humi;
+	}	  
+	  
+   });
+</script>
+<body>
+	<% include ../partials/nav %>
+	<!--온도 표시 화면-->
+	<div class="card-group">
+		<div class="card">
+		  <div class="card-body">
+			<h5 class="card-title">A동-1</h5>
+			<p class="card-text" id="tem1">온도 : </p>
+			<p class="card-text" id="humi1">습도 : </p>
+			<p class="card-text">광량 : </p>
+			<p class="card-text">병해충 : </p>
+		  </div>
+		</div>
+		<div class="card">
+			<div class="card-body">
+				<h5 class="card-title">A동-2</h5>
+				<p class="card-text">온도 : </p>
+				<p class="card-text">습도 : </p>
+				<p class="card-text">광량 : </p>
+				<p class="card-text">병해충 : </p>
+			</div>
+		</div>
+		<div class="card">
+			<div class="card-body">
+				<h5 class="card-title">A동-3</h5>
+				<p class="card-text">온도 : </p>
+				<p class="card-text">습도 : </p>
+				<p class="card-text">광량 : </p>
+				<p class="card-text">병해충 : </p>
+			</div>
+		</div>
+		<div class="card">
+		  <div class="card-body">
+			<h5 class="card-title">A동-4</h5>
+			<p class="card-text">온도 : </p>
+			<p class="card-text">습도 : </p>
+			<p class="card-text">광량 : </p>
+			<p class="card-text">병해충 : </p>
+		  </div>
+		</div>
+		<div class="card">
+			<div class="card-body">
+				<h5 class="card-title">A동-5</h5>
+				<p class="card-text">온도 : </p>
+				<p class="card-text">습도 : </p>
+				<p class="card-text">광량 : </p>
+				<p class="card-text">병해충 : </p>
+			</div>
+		</div>
+		<div class="card">
+			<div class="card-body">
+				<h5 class="card-title">A동-6</h5>
+				<p class="card-text">온도 : </p>
+				<p class="card-text">습도 : </p>
+				<p class="card-text">광량 : </p>
+				<p class="card-text">병해충 : </p>
+			</div>
+		</div>
+		<div class="card">
+		  <div class="card-body">
+			<h5 class="card-title">A동-7</h5>
+			<p class="card-text">온도 : </p>
+			<p class="card-text">습도 : </p>
+			<p class="card-text">광량 : </p>
+			<p class="card-text">병해충 : </p>
+		  </div>
+		</div>
+		<div class="card">
+			<div class="card-body">
+				<h5 class="card-title">A동-8</h5>
+				<p class="card-text">온도 : </p>
+				<p class="card-text">습도 : </p>
+				<p class="card-text">광량 : </p>
+				<p class="card-text">병해충 : </p>
+			</div>
+		</div>
+		<div class="card">
+			<div class="card-body">
+				<h5 class="card-title">A동-9</h5>
+				<p class="card-text">온도 : </p>
+				<p class="card-text">습도 : </p>
+				<p class="card-text">광량 : </p>
+				<p class="card-text">병해충 : </p>
+			</div>
+		</div>
+	  </div>
+	  <div class="card-group">
+		<div class="card">
+		  <div class="card-body">
+			<h5 class="card-title">B동-1</h5>
+			<p class="card-text">온도 : </p>
+			<p class="card-text">습도 : </p>
+			<p class="card-text">광량 : </p>
+			<p class="card-text">병해충 : </p>
+		  </div>
+		</div>
+		<div class="card">
+			<div class="card-body">
+				<h5 class="card-title">B동-2</h5>
+				<p class="card-text">온도 : </p>
+				<p class="card-text">습도 : </p>
+				<p class="card-text">광량 : </p>
+				<p class="card-text">병해충 : </p>
+			</div>
+		</div>
+		<div class="card">
+			<div class="card-body">
+				<h5 class="card-title">B동-3</h5>
+				<p class="card-text">온도 : </p>
+				<p class="card-text">습도 : </p>
+				<p class="card-text">광량 : </p>
+				<p class="card-text">병해충 : </p>
+			</div>
+		</div>
+		<div class="card">
+		  <div class="card-body">
+			<h5 class="card-title">B동-4</h5>
+			<p class="card-text">온도 : </p>
+			<p class="card-text">습도 : </p>
+			<p class="card-text">광량 : </p>
+			<p class="card-text">병해충 : </p>
+		  </div>
+		</div>
+		<div class="card">
+			<div class="card-body">
+				<h5 class="card-title">B동-5</h5>
+				<p class="card-text">온도 : </p>
+				<p class="card-text">습도 : </p>
+				<p class="card-text">광량 : </p>
+				<p class="card-text">병해충 : </p>
+			</div>
+		</div>
+		<div class="card">
+			<div class="card-body">
+				<h5 class="card-title">B동-6</h5>
+				<p class="card-text">온도 : </p>
+				<p class="card-text">습도 : </p>
+				<p class="card-text">광량 : </p>
+				<p class="card-text">병해충 : </p>
+			</div>
+		</div>
+		<div class="card">
+		  <div class="card-body">
+			<h5 class="card-title">B동-7</h5>
+			<p class="card-text">온도 : </p>
+			<p class="card-text">습도 : </p>
+			<p class="card-text">광량 : </p>
+			<p class="card-text">병해충 : </p>
+		  </div>
+		</div>
+		<div class="card">
+			<div class="card-body">
+				<h5 class="card-title">B동-8</h5>
+				<p class="card-text">온도 : </p>
+				<p class="card-text">습도 : </p>
+				<p class="card-text">광량 : </p>
+				<p class="card-text">병해충 : </p>
+			</div>
+		</div>
+		<div class="card">
+			<div class="card-body">
+				<h5 class="card-title">B동-9</h5>
+				<p class="card-text">온도 : </p>
+				<p class="card-text">습도 : </p>
+				<p class="card-text">광량 : </p>
+				<p class="card-text">병해충 : </p>
+			</div>
+		</div>
+	  </div>
+	  <div class="card-group">
+		<div class="card">
+		  <div class="card-body">
+			<h5 class="card-title">C동-1</h5>
+			<p class="card-text">온도 : </p>
+			<p class="card-text">습도 : </p>
+			<p class="card-text">광량 : </p>
+			<p class="card-text">병해충 : </p>
+		  </div>
+		</div>
+		<div class="card">
+			<div class="card-body">
+				<h5 class="card-title">C동-2</h5>
+				<p class="card-text">온도 : </p>
+				<p class="card-text">습도 : </p>
+				<p class="card-text">광량 : </p>
+				<p class="card-text">병해충 : </p>
+			</div>
+		</div>
+		<div class="card">
+			<div class="card-body">
+				<h5 class="card-title">C동-3</h5>
+				<p class="card-text">온도 : </p>
+				<p class="card-text">습도 : </p>
+				<p class="card-text">광량 : </p>
+				<p class="card-text">병해충 : </p>
+			</div>
+		</div>
+		<div class="card">
+		  <div class="card-body">
+			<h5 class="card-title">C동-4</h5>
+			<p class="card-text">온도 : </p>
+			<p class="card-text">습도 : </p>
+			<p class="card-text">광량 : </p>
+			<p class="card-text">병해충 : </p>
+		  </div>
+		</div>
+		<div class="card">
+			<div class="card-body">
+				<h5 class="card-title">C동-5</h5>
+				<p class="card-text">온도 : </p>
+				<p class="card-text">습도 : </p>
+				<p class="card-text">광량 : </p>
+				<p class="card-text">병해충 : </p>
+			</div>
+		</div>
+		<div class="card">
+			<div class="card-body">
+				<h5 class="card-title">C동-6</h5>
+				<p class="card-text">온도 : </p>
+				<p class="card-text">습도 : </p>
+				<p class="card-text">광량 : </p>
+				<p class="card-text">병해충 : </p>
+			</div>
+		</div>
+		<div class="card">
+		  <div class="card-body">
+			<h5 class="card-title">C동-7</h5>
+			<p class="card-text">온도 : </p>
+			<p class="card-text">습도 : </p>
+			<p class="card-text">광량 : </p>
+			<p class="card-text">병해충 : </p>
+		  </div>
+		</div>
+		<div class="card">
+			<div class="card-body">
+				<h5 class="card-title">C동-8</h5>
+				<p class="card-text">온도 : </p>
+				<p class="card-text">습도 : </p>
+				<p class="card-text">광량 : </p>
+				<p class="card-text">병해충 : </p>
+			</div>
+		</div>
+		<div class="card">
+			<div class="card-body">
+				<h5 class="card-title">C동-9</h5>
+				<p class="card-text">온도 : </p>
+				<p class="card-text">습도 : </p>
+				<p class="card-text">광량 : </p>
+				<p class="card-text">병해충 : </p>
+			</div>
+		</div>
+	  </div>
+</body>
+</html>

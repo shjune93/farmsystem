@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <% include ../partials/head %>
+</head>
+<body>
+  <% include ../partials/nav %>
+  <div class="container auth auth-login">
+
+    <form action="/auth/login" method="post">
+      <h1 class="mainForm">LOGIN</h1>
+      <div class="formcontainer">
+        
+          <div class="memberBox">
+          <input class="member" type="text" name="username" placeholder="username" required>
+  
+          <input class="member" type="password" name="password" placeholder="password" required>
+          </div>
+
+        <p>
+          <input class="submitbtn" type="submit" value="로그인">
+        </p>
+
+        <div style="color: #ccc; text-align: center;">x</div>
+
+        <div class="joinBtn">
+          <a style="text-decoration: none;" href="/auth/join">
+            <span>회원가입</span>
+          </a>
+
+        </div>
+        <a class="kakaoBtn" href="/auth/kakao"><img class="fa" src="../images/kakao_btn.PNG"></a>
+      </div>
+    </form>
+    
+  </div>
+
+</body>
+</html>

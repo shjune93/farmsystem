@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<% include ../partials/head %>
+	<style>
+		body{margin: 0;}
+		a{text-decoration: none; color: inherit;}
+		.wrapper{
+			text-align: center;
+			margin-top: 20px;
+		}
+
+		.content{
+			position: relative;
+			display: inline-block;
+		}
+		.content img{
+			display: block;
+		}
+		.one:before{
+			content: "";
+			position: absolute;
+			top: 0;
+			left: 0;
+			height: 100%;
+			width: 100%;
+			background-color: #ec8d81;
+			opacity: 0.6;
+			transition: all 0.9s;
+		}
+		.one:hover:before{
+			opacity: 0;
+		}
+		.text{
+			position: absolute;
+			top: 30%;
+			left: 10%;
+			color: white;
+			font-size: 35px;
+			text-align: left;
+			font-family:  'Nanum Pen Script', cursive;
+			
+		}
+		.two:before{
+			content: "";
+			position: absolute;
+			top: 0;
+			left: 0;
+			height: 100%;
+			width: 100%;
+			background-color: #e7b788;
+			opacity: 0.6;
+			transition: all 0.9s;
+		}
+		.two:hover:before{
+			opacity: 0;
+		}
+		.three:before{
+			content: "";
+			position: absolute;
+			top: 0;
+			left: 0;
+			height: 100%;
+			width: 100%;
+			background-color: #B3A0C9;
+			opacity: 0.6;
+			transition: all 0.9s;
+		}
+		.three:hover:before{
+			opacity: 0;
+		}
+		.four:before{
+			content: "";
+			position: absolute;
+			top: 0;
+			left: 0;
+			height: 100%;
+			width: 100%;
+			background-color: #87c5a4;
+			opacity: 0.6;
+			transition: all 0.9s;
+		}
+		.four:hover:before{
+			opacity: 0;
+		}
+	</style>
+</head>
+<body>
+	<% include ../partials/nav %>
+	<div class="wrapper">
+		<div class="content one">
+			<img alt="" src="./images/contents_1.jpg" width="440px" height="280px">
+			<div class="text">
+				<a href="#">
+					<p>음악영화</p>
+					<p>BEST 5</p>
+				</a>
+			</div>
+		</div>
+		<div class="content two">
+			<img alt="" src="./images/contents_2.jpg" width="700px" height="280px">
+			<div class="text">
+				<a href="#">
+					<p>지친 일상에 위로를 전하는</p>
+					<p>잔잔한 영화</p>
+				</a>
+			</div>
+		</div>
+		<div class="content three">
+			<img alt="" src="./images/contents_3.jpg" width="700px" height="280px">
+			<div class="text">
+				<a href="#">
+					<p>당신이 놓쳤을지도 모를</p>
+					<p>작지만 빛나는 올해의 영화</p>
+				</a>
+			</div>
+		</div>
+		<div class="content four">
+			<img alt="" src="./images/contents_4.jpg" width="440px" height="280px">
+			<div class="text">
+				<a href="#">
+					<p>My Favorite Movie</p>
+				</a>
+			</div>
+		</div>
+	</div>
+
+</body>
+</html>
