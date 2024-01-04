@@ -35,11 +35,11 @@ io.on('connection',(socket)=>{
   });
   socket.on('arduino', (msg)=> {
     msgString=msg.toString();
-    //console.log(msgString);
-    //console.log("여기까지")
+    console.log(msgString);
+    console.log("여기까지")
     //json문자열을 javascript객체로 각속성에 접근가능
     var jsonmsg=JSON.parse(msgString);
-    //console.log(jsonmsg);
+    console.log(jsonmsg);
     //json형식의 문자열 반환
     var sqlInsert = 'INSERT INTO farmEnvi(ardu_id, tem, humi,date) VALUES ('+jsonmsg.ardu_id+','+jsonmsg.temp+','+ jsonmsg.humidity+', NOW());';
     
@@ -68,56 +68,56 @@ let playAlert = setInterval(function() {
 }, 3000);
 
 
-// var dgram = require('dgram');
-// var s = dgram.createSocket('udp4');
+ var dgram = require('dgram');
+ var s = dgram.createSocket('udp4');
 //서버열기
-// s.on('message', function(msg, rinfo) {
-//   //html에서 1데이터 보내면
-//   if (msg == '1'){
-//     //db조회 마지막데이터만
-//     //나중에 그룹으로 하면 https://myhappyman.tistory.com/76
-//     conn.query("select ardu_id, tem, humi, date from farmEnvi order by date desc limit 1", function (err, results) {
-//       if (err) throw err;
-//       //console.log(results)
-//       //console.log(results.at(-1).tem); // tag1 using mysql2
-//       //console.log(results.at(-1).humi); // item1 using mysql2
-//       console.log(typeof(results));
-//       message=JSON.stringify(results);
-//       //메세지 만들기
-//     //데이터보내기
-//       s.send(message, 0, message.length, 3000, rinfo.address, function(err, bytes) {
-//       if (err) {
-//         console.log(err);
-//         throw err;
-//       }
-//       console.log('udp 클라이언트한테 전송 ' + rinfo.address + ':' + 3000);
+ s.on('message', function(msg, rinfo) {
+   //html에서 1데이터 보내면
+   if (msg == '1'){
+     //db조회 마지막데이터만
+     //나중에 그룹으로 하면 https://myhappyman.tistory.com/76
+     conn.query("select ardu_id, tem, humi, date from farmEnvi order by date desc limit 1", function (err, results) {
+       if (err) throw err;
+       //console.log(results)
+       //console.log(results.at(-1).tem); // tag1 using mysql2
+       //console.log(results.at(-1).humi); // item1 using mysql2
+       console.log(typeof(results));
+       message=JSON.stringify(results);
+       //메세지 만들기
+     //데이터보내기
+       s.send(message, 0, message.length, 3000, rinfo.address, function(err, bytes) {
+       if (err) {
+         console.log(err);
+         throw err;
+       }
+       console.log('udp 클라이언트한테 전송 ' + rinfo.address + ':' + 3000);
       
-//     });
-//     });
+     });
+     });
     
 
-//   }
-//   else{
-//     //아두이노에서 데이터 받아서 DB에 저장
-//     msgString=msg.toString();
-//     console.log(msgString);
-//     //json문자열을 javascript객체로 각속성에 접근가능
-//     var jsonmsg=JSON.parse(msgString);
-//     console.log(jsonmsg);
-//     //json형식의 문자열 반환
-//     var sqlInsert = 'INSERT INTO farmEnvi(ardu_id, tem, humi,date) VALUES ('+jsonmsg.ardu_id+','+jsonmsg.temp+','+ jsonmsg.humidity+', NOW());';
+   }
+   else{
+     //아두이노에서 데이터 받아서 DB에 저장
+     msgString=msg.toString();
+     console.log(msgString);
+     //json문자열을 javascript객체로 각속성에 접근가능
+     var jsonmsg=JSON.parse(msgString);
+     console.log(jsonmsg);
+     //json형식의 문자열 반환
+     var sqlInsert = 'INSERT INTO farmEnvi(ardu_id, tem, humi,date) VALUES ('+jsonmsg.ardu_id+','+jsonmsg.temp+','+ jsonmsg.humidity+', NOW());';
     
-//     conn.query(sqlInsert, function (err, result) {
+     conn.query(sqlInsert, function (err, result) {
     
-//       if (err) throw err;
+       if (err) throw err;
 
-//       console.log("1 record inserted");
+       console.log("1 record inserted");
 
-//     });
-//   }
-//   });
+     });
+   }
+   });
 
-// s.bind(8080); 
+ s.bind(8080); 
 
 app.use(express.static(__dirname + '/public'));
 //app.use('/upload', express.static('uploads'));
